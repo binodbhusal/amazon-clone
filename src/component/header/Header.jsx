@@ -25,7 +25,11 @@ const Header = () => {
       <div className="header-navbar">
         <Link to={!user && '/login'}>
           <button type="button" onClick={handleAuth} className="menu-options">
-            <span className="text-menu-option-one">Hello User</span>
+            <span className="text-menu-option-one">
+              Hello,
+              {' '}
+              {!user ? 'Guest' : user.email}
+            </span>
             <span className="text-menu-option-two">{user ? 'Signout' : 'Sign in'}</span>
           </button>
         </Link>

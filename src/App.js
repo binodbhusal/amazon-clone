@@ -1,14 +1,18 @@
 import './App.css';
 import { BrowserRouter, Route, Routes } from 'react-router-dom';
 import { useEffect } from 'react';
+import { loadStripe } from '@stripe/stripe-js';
+import { Elements } from '@stripe/react-stripe-js';
 import Header from './component/header/Header';
 import Home from './component/home/Home';
 import Checkout from './component/checkout/Checkout';
+import Payment from './component/checkout/Payment';
 import Login from './component/auth/Login';
 import { auth } from './firebase';
 import { useStateValue } from './component/context';
 
 function App() {
+  const stripePromise = loadStripe(process.env.REACT_APP_STRIPE_PUBLISHABLE_KEY);
   const [, dispatch] = useStateValue();
   useEffect(() => {
     auth.onAuthStateChanged((authUser) => {
@@ -40,7 +44,15 @@ function App() {
 
                   <Route path="/" element={<Home />} />
                   <Route path="/checkout" element={<Checkout />} />
+                  <Route
+                    path="/payment"
+                    element={(
+                      <Elements stripe={stripePromise}>
+                        <Payment />
+                      </Elements>
+                   )}
 
+                  />
                 </Routes>
               </>
         )}
