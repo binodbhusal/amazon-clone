@@ -439,3 +439,46 @@ Issues? Report them at https://github.com/firebase/firebase-tools/issues and att
 [debug] [2024-02-25T11:02:49.708Z] [worker-us-central1-api-6cae65d4-4083-4ca9-9209-3731ccb2663f]: FINISHED {"metadata":{"emulator":{"name":"functions"},"function":{"name":"us-central1-api"},"extension":{},"message":"[worker-us-central1-api-6cae65d4-4083-4ca9-9209-3731ccb2663f]: FINISHED"}}
 [debug] [2024-02-25T11:02:49.708Z] [worker-us-central1-api-cf4ea029-1ae8-46d3-b5b3-45e1a26adf89]: exited {"metadata":{"emulator":{"name":"functions"},"function":{"name":"us-central1-api"},"extension":{},"message":"[worker-us-central1-api-cf4ea029-1ae8-46d3-b5b3-45e1a26adf89]: exited"}}
 [debug] [2024-02-25T11:02:49.708Z] [worker-us-central1-api-cf4ea029-1ae8-46d3-b5b3-45e1a26adf89]: FINISHED {"metadata":{"emulator":{"name":"functions"},"function":{"name":"us-central1-api"},"extension":{},"message":"[worker-us-central1-api-cf4ea029-1ae8-46d3-b5b3-45e1a26adf89]: FINISHED"}}
+[debug] [2024-02-25T11:05:24.049Z] File /Users/binodbhusal/Desktop/job-search/amazon-clone/functions/package-lock.json changed, reloading triggers {"metadata":{"emulator":{"name":"functions"},"message":"File /Users/binodbhusal/Desktop/job-search/amazon-clone/functions/package-lock.json changed, reloading triggers"}}
+[debug] [2024-02-25T11:05:25.055Z] Validating nodejs source
+[debug] [2024-02-25T11:05:25.414Z] > [functions] package.json contents: {
+  "name": "functions",
+  "description": "Cloud Functions for Firebase",
+  "scripts": {
+    "lint": "eslint .",
+    "serve": "firebase emulators:start --only functions",
+    "shell": "firebase functions:shell",
+    "start": "npm run shell",
+    "deploy": "firebase deploy --only functions",
+    "logs": "firebase functions:log"
+  },
+  "engines": {
+    "node": "18"
+  },
+  "main": "index.js",
+  "dependencies": {
+    "cors": "^2.8.5",
+    "express": "^4.18.2",
+    "firebase-admin": "^11.8.0",
+    "firebase-functions": "^4.3.1",
+    "stripe": "^14.18.0"
+  },
+  "devDependencies": {
+    "@babel/core": "^7.23.9",
+    "@babel/preset-env": "^7.23.9",
+    "eslint": "^8.15.0",
+    "eslint-config-google": "^0.14.0",
+    "firebase-functions-test": "^3.1.0"
+  },
+  "private": true
+}
+[debug] [2024-02-25T11:05:25.414Z] Building nodejs source
+[debug] [2024-02-25T11:05:25.414Z] Failed to find version of module node: reached end of search path /Users/binodbhusal/Desktop/job-search/amazon-clone/functions/node_modules
+[info] ✔  functions: Using node@18 from host. 
+[info] i  functions: Loaded environment variables from .env. 
+[debug] [2024-02-25T11:05:25.416Z] Could not find functions.yaml. Must use http discovery
+[debug] [2024-02-25T11:05:25.417Z] Found firebase-functions binary at '/Users/binodbhusal/Desktop/job-search/amazon-clone/functions/node_modules/.bin/firebase-functions'
+[info] Serving at port 8416
+
+[debug] [2024-02-25T11:05:25.688Z] Got response from /__/functions.yaml {"endpoints":{"api":{"platform":"gcfv1","availableMemoryMb":null,"timeoutSeconds":null,"minInstances":null,"maxInstances":null,"ingressSettings":null,"serviceAccountEmail":null,"vpc":null,"httpsTrigger":{},"entryPoint":"api"}},"specVersion":"v1alpha1","requiredAPIs":[]}
+[info] ✔  functions: Loaded functions definitions from source: api. {"metadata":{"emulator":{"name":"functions"},"message":"Loaded functions definitions from source: api."}}
