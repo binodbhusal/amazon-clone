@@ -10,6 +10,7 @@ import Payment from './component/checkout/Payment';
 import Login from './component/auth/Login';
 import { auth } from './firebase';
 import { useStateValue } from './component/context';
+import Orders from './component/checkout/Orders';
 
 function App() {
   const stripePromise = loadStripe(process.env.REACT_APP_STRIPE_PUBLISHABLE_KEY);
@@ -44,6 +45,8 @@ function App() {
 
                   <Route path="/" element={<Home />} />
                   <Route path="/checkout" element={<Checkout />} />
+                  <Route path="/orders" element={<Orders />} />
+
                   <Route
                     path="/payment"
                     element={(

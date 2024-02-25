@@ -8,6 +8,11 @@ export const reducer = (state, action) => {
   const indexToRemove = state.basket.findIndex((item) => item.id === action.id);
 
   switch (action.type) {
+    case 'EMPTY_BASKET':
+      return {
+        ...state,
+        basket: [],
+      };
     case 'ADD_TO_BASKET':
       return {
         ...state,

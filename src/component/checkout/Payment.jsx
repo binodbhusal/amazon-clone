@@ -1,11 +1,13 @@
 import { useEffect, useState } from 'react';
 import { Link, useNavigate } from 'react-router-dom';
 import { CardElement, useStripe, useElements } from '@stripe/react-stripe-js';
+import { collection, addDoc } from 'firebase/firestore';
 import { useStateValue } from '../context';
 import CheckoutProduct from './CheckoutProduct';
 import './Payment.scss';
 import { getBasketTotal } from '../reducer';
 import axios from '../../axios';
+import { db } from '../../firebase';
 
 const Payment = () => {
   const stripe = useStripe();
@@ -15,32 +17,51 @@ const Payment = () => {
   const [processing, setProcessing] = useState(false);
   const [succeeded, setSucceeded] = useState('');
   const [clientSecret, setClientSecret] = useState(true);
-  const [{ basket, user, id }] = useStateValue();
+  const [{ basket, user, id }, dispatch] = useStateValue();
   const navigate = useNavigate();
 
   const handleSubmit = async (e) => {
     e.preventDefault();
     setProcessing(true);
-    const payload = await stripe.confirmCardPayment(clientSecret, {
-      payment_method: elements.getElement(CardElement),
 
-    }).then(({paymentIntent}) => {
-      setSucceeded(true);
+    const cardElement = elements.getElement(CardElement);
+
+    try {
+      const { paymentIntent } = await stripe.confirmCardPayment(clientSecret, {
+        payment_method: {
+          card: cardElement,
+        },
+      });
+
+      // Use collection and addDoc to add a document to the 'orders' collection
+      const orderRef = await addDoc(collection(db, 'users', user?.uid, 'orders'), {
+        basket,
+        amount: paymentIntent.amount,
+        created: paymentIntent.created,
+      });
+
+      console.log('Order added with ID: ', orderRef.id);
+
       setError(null);
+      setSucceeded(true);
       setProcessing(false);
-      navigate.replace('/orders');
-    });
+      dispatch({
+        type: 'EMPTY_BASKET',
+      });
+      navigate('/orders', { replace: true });
+    } catch (error) {
+      setError(`Payment failed: ${error.message}`);
+      setSucceeded(false);
+    }
   };
+
   const handleChange = (event) => {
     setDisabled(event.empty);
     setError(event.error ? event.error.message : '');
   };
   useEffect(() => {
-    const getClientSecret = async() => {
-      const response = await axios({
-        method: 'post',
-        url: `/payments/create/total=${getBasketTotal(basket) * 100}`,
-      });
+    const getClientSecret = async () => {
+      const response = await axios.post(`/payments/create?total=${getBasketTotal(basket) * 100}`);
       setClientSecret(response.data.clientSecret);
     };
     getClientSecret();

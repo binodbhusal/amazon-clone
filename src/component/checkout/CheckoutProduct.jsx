@@ -3,7 +3,7 @@ import { useStateValue } from '../context';
 import './CheckoutProduct.scss';
 
 const CheckoutProduct = ({
-  id, title, image, price, rating,
+  id, title, image, price, rating, hideButton,
 }) => {
   const [{ basket }, dispatch] = useStateValue();
   const handleRemoveFromBasket = () => {
@@ -29,7 +29,9 @@ const CheckoutProduct = ({
               <p key={index}>⭐</p>
             ))}
         </div>
+        {!hideButton && (
         <button type="button" onClick={() => handleRemoveFromBasket(basket)}>Remove from basket</button>
+        )}
       </div>
     </div>
   );
@@ -39,6 +41,7 @@ CheckoutProduct.propTypes = {
   title: PropTypes.string,
   price: PropTypes.number,
   rating: PropTypes.number,
+  hideButton: PropTypes.bool,
   image: PropTypes.shape({
     url: PropTypes.string,
     alt: PropTypes.string,
@@ -49,6 +52,7 @@ CheckoutProduct.defaultProps = {
   title: 'Default Title',
   price: 0,
   rating: 0,
+  hideButton: true,
   image: {
     url: 'default-image-url',
     alt: 'Default Alt Text',

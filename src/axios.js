@@ -1,6 +1,6 @@
 import axios from 'axios';
 
 const intance = axios.create({
-  baseURL: '...',
+  baseURL: 'http://127.0.0.1:5001/clone-1b966/us-central1/api',
 });
 export default intance;
