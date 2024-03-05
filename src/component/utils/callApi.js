@@ -14,13 +14,11 @@ const apiCall = async (resource) => {
       ...defaultConfig,
 
     });
-    console.log('datais:', data);
 
     return data;
   } catch (error) {
     // Handle error (log it, throw it, etc.)
-    console.error('API Call Error:', error);
-    throw error;
+    throw Error('API Call Error:', error);
   }
 };
 export default apiCall;
