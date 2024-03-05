@@ -7,10 +7,7 @@
     width: 100%;
 
     .home-image {
-      width: 100%;
-      margin-bottom: -150px;
       z-index: -1;
-      mask-image: linear-gradient(rgba(0, 0, 0, 1), rgba(0, 0, 0, 0));
     }
 
     .home-row {
@@ -18,5 +15,9 @@
       z-index: 1;
       margin: 0 5px;
     }
+  }
+  .home-image {
+    z-index: -1;
+    mask-image: linear-gradient(rgba(0, 0, 0, 1), rgba(0, 0, 0, 0));
   }
 }
