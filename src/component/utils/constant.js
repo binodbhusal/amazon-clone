@@ -15,3 +15,6 @@ export const formatDeliveryDate = () => {
 
   return formattedDate;
 };
+// constants.js
+// eslint-disable-next-line max-len
+export const calculateSubtotal = (basket) => basket.reduce((subtotal, product) => subtotal + (product.price * product.quantity), 0);
