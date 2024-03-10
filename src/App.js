@@ -17,6 +17,8 @@ import ProductPage from './component/product/ProductPage';
 import SearchResults from './component/header/SearchResults';
 import CategoryProducts from './component/product/CategoryProducts';
 import Success from './component/checkout/Success';
+import Signup from './component/auth/Signup';
+import Footer from './component/footer/Footer';
 
 function App() {
   const stripePromise = loadStripe(process.env.REACT_APP_STRIPE_PUBLISHABLE_KEY);
@@ -35,6 +37,7 @@ function App() {
       <div className="app min-w[100px] max-w[1500px]">
         <Routes>
           <Route path="/login" element={<Login />} />
+          <Route path="/Signup" element={<Signup />} />
           <Route path="/success" element={<Success />} />
 
           <Route
@@ -62,6 +65,7 @@ function App() {
 
                   />
                 </Routes>
+                <Footer />
               </>
         )}
           />
