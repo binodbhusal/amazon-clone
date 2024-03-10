@@ -12,17 +12,19 @@ const Footer = () => {
   };
 
   return (
-    <div className="relative bottom-0">
+    <>
       {!user && (
       <div className="bg-white">
         <div className="py-8 border-t  border-b border-gray-300 bg-white px-4 flex flex-col items-center">
-          <button
-            className="flex mt-6 mx-auto w-1/5 border font-semibold border-rose-300 items-center justify-center text-black shadow text-sm sm:text-base bg-amber-300 hover:bg-amber-400 rounded py-1 w-full transition duration-150 ease-in"
-            type="submit"
-            onClick={() => navigate('/login')}
-          >
-            Sign in
-          </button>
+          <div className="max-auto w-1/5">
+            <button
+              className="flex mt-6 mx-auto w-1/5 border font-semibold border-rose-300 items-center justify-center text-black shadow text-sm sm:text-base bg-amber-300 hover:bg-amber-400 rounded py-1 w-full transition duration-150 ease-in"
+              type="submit"
+              onClick={() => navigate('/login')}
+            >
+              Sign in
+            </button>
+          </div>
           <div className="text-sm font-medium mt-1">
             <span>New customer?</span>
             <button
@@ -99,7 +101,7 @@ const Footer = () => {
         </Link>
         <p className=" bg-zinc-900 py-4 text-center text-gray-200 text-xs">©2024, Fake clone Amazon.com, Inc. or its affiliates</p>
       </div>
-    </div>
+    </>
   );
 };
 export default Footer;
