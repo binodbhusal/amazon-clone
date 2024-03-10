@@ -9,7 +9,6 @@ const Cart = () => {
   const basket = useSelector((state) => state.cart.basket);
   const user = useSelector((state) => state.cart.user);
   const itemNumber = useSelector((state) => state.cart.productNumber);
-  // eslint-disable-next-line max-len
   const subtotal = calculateSubtotal(basket);
   const handleCheckout = () => {
     if (user) {

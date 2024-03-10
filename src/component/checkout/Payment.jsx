@@ -22,7 +22,7 @@ const Payment = () => {
   const user = useSelector((state) => state.cart.user);
   const navigate = useNavigate();
   const dispatch = useDispatch();
-  const subtotal = calculateSubtotal(basket).toFixed(2);
+  const subtotal = calculateSubtotal(basket);
   const handleSubmit = async (e) => {
     e.preventDefault();
     setProcessing(true);
@@ -30,6 +30,13 @@ const Payment = () => {
     const cardElement = elements.getElement(CardElement);
 
     try {
+      // Check if clientSecret is set
+      if (!clientSecret) {
+        setError('Client secret not available');
+        setSucceeded(false);
+        return;
+      }
+
       const { paymentIntent } = await stripe.confirmCardPayment(clientSecret, {
         payment_method: {
           card: cardElement,
@@ -41,6 +48,7 @@ const Payment = () => {
         amount: paymentIntent.amount,
         created: paymentIntent.created,
       });
+
       // eslint-disable-next-line no-console
       console.log('Order added with ID: ', orderRef.id);
 
@@ -48,7 +56,7 @@ const Payment = () => {
       setSucceeded(true);
       setProcessing(false);
       dispatch(emptyBasket());
-      navigate('/orders', { replace: true });
+      navigate('/success', { replace: true });
     } catch (error) {
       setError(`Payment failed: ${error.message}`);
       setSucceeded(false);
@@ -61,11 +69,22 @@ const Payment = () => {
   };
   useEffect(() => {
     const getClientSecret = async () => {
-      const response = await axios.post(`/payments/create?total=${calculateSubtotal(basket) * 100}`);
-      setClientSecret(response.data.clientSecret);
+      const amountInCents = Math.round(subtotal * 100);
+      try {
+        const response = await axios.post(`/payments/create?total=${amountInCents}`);
+
+        if (response.data && response.data.clientSecret) {
+          setClientSecret(response.data.clientSecret);
+        } else {
+          throw Error('Client secret not present in the response');
+        }
+      } catch (error) {
+        throw Error('Error fetching client secret:', error);
+      }
     };
+
     getClientSecret();
-  }, [basket]);
+  }, [basket, subtotal]);
   return (
     <>
       <div className="flex justify-around items-center h-[80px] bg-gray-200">
@@ -98,7 +117,7 @@ const Payment = () => {
               Delivery Address
             </div>
             <div className="payment-title flex-4/5 text-sm">
-              { user?.email }
+              { user?.displayName }
               <p>117 RC/DT Rua Timor </p>
               <p>Olival Basto</p>
               <p>Portugal</p>
@@ -133,7 +152,7 @@ const Payment = () => {
               Items and shipping
             </div>
             <div className="payment-title flex-4/5 w-full">
-              {basket.map((item) => (
+              {basket && basket.map((item) => (
                 <div key={item.id} className="flex space-x-1 items center">
                   <img src={item.image} alt="item" className="h-5 w-5 rounded-md" />
                   <div className="w-full">

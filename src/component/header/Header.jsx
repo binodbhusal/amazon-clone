@@ -32,15 +32,15 @@ const Header = () => {
         {/* left section */}
         <div className="flex items-center">
           <Link to="/">
-            <div className="border border-transparent m-1 py-2 px-2 mr-4  hover:border-white">
+            <div className="border border-transparent rounded m-1 py-2 px-2 mr-4  hover:border-white">
               <img
                 className="h-[35px] w-[100px]"
-                src="./amazon-logo.webp"
+                src="../amazon-logo.webp"
                 alt="amazon-logo"
               />
             </div>
           </Link>
-          <div className="border border-transparent py-1 px-2 pl-6 hover:border-white">
+          <div className="border border-transparent rounded py-1 px-2 pl-6 hover:border-white">
             <div className="text-xs lg:text-sm"><span className="text-gray-300 text-xs font-semibold font-Amazon-Ember-Regular">Deliver to</span></div>
             <div className=" flex text-sm lg:text-base mt-[-5px]">
               <GrLocation className=" ml-[-20px] text-[20px]" />
@@ -54,14 +54,14 @@ const Header = () => {
         </div>
         {/* right section  */}
         <div className="flex items-center">
-          <div className="border border-transparent  py-1 px-2  hover:border-white">
+          <div className="border border-transparent rounded py-1 px-2  hover:border-white">
             <div className="text-xs lg:text-sm">
               <Link to={!user && '/login'}>
                 <button type="button" onClick={handleAuth} className="menu-options">
-                  <span className="text-menu-option-one">
+                  <span className="text-menu-option-one overflow-hidden whitespace-nowrap">
                     Hello,
                     {' '}
-                    {!user ? 'Guest' : user.email}
+                    {!user ? 'Guest' : user.displayName}
                   </span>
                   <div className="text-sm lg:text-base mt[-2] font-semibold">{user ? 'Signout' : 'Sign in'}</div>
                 </button>
@@ -69,13 +69,13 @@ const Header = () => {
             </div>
 
           </div>
-          <div className="border border-transparent  py-1 px-2  hover:border-white">
+          <div className="border border-transparent rounded py-1 px-2  hover:border-white">
             <Link to={user ? '/orders' : '/login'}>
               <div className="text-xs lg:text-sm">Returns</div>
               <div className="text-sm lg:text-base mt[-2] font-semibold">& Orders</div>
             </Link>
           </div>
-          <div className="pr-3 pl-2 flex border border-transparent py-1 hover:border-white">
+          <div className="pr-3 pl-2 flex border border-transparent rounded py-1 hover:border-white">
             <Link to="/cart">
               <PiShoppingCartSimple style={{ fontSize: '45px', color: '#fff' }} />
               <div className="relative text-white"><span className="absolute text-orange-400 font-bold mt-[-35px] right-[15px]">{productNumber}</span></div>
@@ -101,40 +101,7 @@ const Header = () => {
         <div>Sell</div>
       </div>
     </div>
-  //     <Link to="/">
-  //     </Link>
-  //     <div className="search-bar">
-  //       <input type="text" />
-  //       <IoMdSearch className="search-icon" />
-  //     </div>
-  //     <div className="header-navbar">
-  //       <Link to={!user && '/login'}>
-  //         <button type="button" onClick={handleAuth} className="menu-options">
-  //           <span className="text-menu-option-one">
-  //             Hello,
-  //             {' '}
-  //             {!user ? 'Guest' : user.email}
-  //           </span>
-  //           <span className="text-menu-option-two">{user ? 'Signout' : 'Sign in'}</span>
-  //         </button>
-  //       </Link>
-  //       <div className="menu-options">
-  //         <span className="text-menu-option-one">Returns</span>
-  //         <span className="text-menu-option-two">&Orders</span>
-  //       </div>
-  //       <div className="menu-options">
-  //         <span className="text-menu-option-one">Your</span>
-  //         <span className="text-menu-option-two">Prime</span>
-  //       </div>
-  //       <div className="shoping-cart">
-  //         <Link to="/checkout">
-  // eslint-disable-next-line max-len
-  //         </Link>
-  //         <span className="text-menu-option-two cart-ount">{basket?.length}</span>
-  //       </div>
-  //     </div>
-  //   </div>
-  // );
+
   );
 };
 export default Header;

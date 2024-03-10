@@ -31,7 +31,7 @@ const ProductCard = ({
           <ProductBadge badge={product.badge} />
           <p className="relative mt-3">
             <small className="absolute top[-15px]">€</small>
-            <strong className="text-[30px] ml-3 mt-6">{product.price}</strong>
+            <strong className="text-[25px] ml-3 mt-6 font-semibold">{product.price}</strong>
           </p>
         </div>
       </div>

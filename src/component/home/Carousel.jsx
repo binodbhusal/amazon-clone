@@ -35,10 +35,10 @@ const Carousel = () => {
     <div className="h-[600px]  w-full mb-[-20%]">
 
       <Swiper {...swiperParams}>
-        <SwiperSlide onClick={() => searchCategory('Deals')}>
+        <SwiperSlide onClick={() => searchCategory(1)}>
           <img src="../images/carousel_image_1.webp" alt="first-carousel" className="cursor-pointer" />
         </SwiperSlide>
-        <SwiperSlide onClick={() => searchCategory('Amazon')}>
+        <SwiperSlide onClick={() => searchCategory(8)}>
           <img src="../images/carousel_image_2.webp" alt="first-carousel" className="cursor-pointer" />
         </SwiperSlide>
         <SwiperSlide>
@@ -47,16 +47,16 @@ const Carousel = () => {
             <track kind="captions" srcLang="en" label="English" />
           </video>
         </SwiperSlide>
-        <SwiperSlide onClick={() => searchCategory('Computers')}>
+        <SwiperSlide onClick={() => searchCategory(4)}>
           <img src="../images/carousel_image_3.webp" alt="first-carousel" className="cursor-pointer" />
         </SwiperSlide>
-        <SwiperSlide onClick={() => searchCategory('Fashion')}>
+        <SwiperSlide onClick={() => searchCategory(3)}>
           <img src="../images/carousel_image_4.webp" alt="first-carousel" className="cursor-pointer" />
         </SwiperSlide>
-        <SwiperSlide>
+        <SwiperSlide onClick={() => searchCategory(5)}>
           <img src="../images/carousel_images_5.webp" alt="first-carousel" className="cursor-pointer" />
         </SwiperSlide>
-        <SwiperSlide>
+        <SwiperSlide onClick={() => searchCategory(6)}>
           <img src="../images/carousel_images_6.webp" alt="first-carousel" className="cursor-pointer" />
         </SwiperSlide>
       </Swiper>

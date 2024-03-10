@@ -9,7 +9,6 @@ const Search = () => {
   const [categoryOption, setCategoryOption] = useState('All');
   const [suggestion, setSuggestion] = useState(null);
   const [isInputFocused, setIsInputFocused] = useState(false);
-  console.log('isInputFocused:', isInputFocused);
 
   const [search, setSearch] = useState('');
   const navigate = useNavigate();
@@ -18,7 +17,7 @@ const Search = () => {
     ...categoryOptions.category.map((catOption) => catOption.name),
   ];
   const getSuggestion = () => {
-    apiCall('data/suggestions.json')
+    apiCall('data/products.json')
       .then((suggestionResults) => {
         setSuggestion(suggestionResults);
       });
@@ -51,8 +50,9 @@ const Search = () => {
     setSearch('');
   };
   const getWidth = () => {
-    const selectedOptionLength = categoryOption.length;
-    return `${selectedOptionLength * 20}px`;
+    const selectOption = options[categoryOption];
+    const selectedOptionLength = selectOption ? selectOption.length : 0;
+    return `${selectedOptionLength ? selectedOptionLength * 20 : 70}px`;
   };
 
   return (
@@ -69,8 +69,8 @@ const Search = () => {
           onChange={handleOnChange}
         >
           {
-            options.map((catOption) => (
-              <option key={catOption} value={catOption}>
+            options.map((catOption, index) => (
+              <option key={catOption} value={index}>
                 {catOption}
               </option>
 
@@ -80,6 +80,7 @@ const Search = () => {
         <input
           className="flex-grow h-full  text-black p-3 outline-0 border-0"
           type="text"
+          placeholder="Search Amazon"
           value={search}
           onBlur={() => setIsInputFocused(false)}
           onMouseDown={handleInput}
@@ -98,9 +99,9 @@ const Search = () => {
       </div>
       <div className="bg-white text-black absolute z-40">
         {suggestion
-          && suggestion.filter((suggest) => {
+          && Object.values(suggestion).filter((suggest) => {
             const currentSearch = search.toLowerCase();
-            const title = suggest.title.toLowerCase();
+            const title = suggest.title.toLowerCase(); // Use slice to limit the length
             return (
               currentSearch
               && title.startsWith(currentSearch)
@@ -111,8 +112,8 @@ const Search = () => {
             .map((suggest) => (
               // eslint-disable-next-line max-len
               // eslint-disable-next-line jsx-a11y/click-events-have-key-events, jsx-a11y/no-static-element-interactions
-              <div key={suggest.id} onClick={() => setSearch(suggest.title)}>
-                {suggest.title}
+              <div className="w-[790px] px-2" key={suggest.id} onClick={() => setSearch(suggest.title)}>
+                <p className="line-clamp-1">{suggest.title}</p>
               </div>
             ))}
       </div>
