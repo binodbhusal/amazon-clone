@@ -17,7 +17,6 @@ const apiCall = async (resource) => {
 
     return data;
   } catch (error) {
-    // Handle error (log it, throw it, etc.)
     throw Error('API Call Error:', error);
   }
 };
