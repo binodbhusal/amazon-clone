@@ -3,7 +3,7 @@ import React from 'react';
 import { useNavigate } from 'react-router-dom';
 import Category from '../product/Category';
 import Carousel from './Carousel';
-import CarouselCategory from './CarouselCategory';
+import CarouselLowPriceProduct from './CarouselLowPriceProduct';
 import categoryData from '../../data/category.json';
 import CarouselProduct from './CarouselProduct';
 
@@ -43,10 +43,7 @@ const Home = () => {
           })}
         </div>
         <CarouselProduct />
-        <div className="bg-white">
-          <CarouselCategory />
-        </div>
-        <img className="h-[200px] mx-auto object-contain" src="https://m.media-amazon.com/images/G/01/GiftCards/2024/Q1/VX-2409/EN_Evergreen_AGCLP_1_Desktop_GCLP_Hero_3400x680._SX3000_QL85_.jpg" alt="checkout-banner" />
+        <CarouselLowPriceProduct />
       </div>
     </div>
   );
