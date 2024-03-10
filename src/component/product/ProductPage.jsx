@@ -7,12 +7,18 @@ import apiCall from '../utils/callApi';
 import ProductDetails from './ProductDetails';
 import { EURO_FORMAT, formatDeliveryDate } from '../utils/constant';
 import { addCart } from '../../Redux/cartSlice';
+import ProductInfo from './ProductInfo';
 
 const ProductPage = () => {
   const { id } = useParams();
   const dispatch = useDispatch();
   const [product, setProduct] = useState();
   const [quantity, setQuantity] = useState(1);
+  const [selectedImageIndex, setSelectedImageIndex] = useState(0);
+
+  const handleImageClick = (index) => {
+    setSelectedImageIndex(index);
+  };
 
   const getProduct = () => {
     apiCall('data/products.json')
@@ -34,20 +40,32 @@ const ProductPage = () => {
 
   return (product
     && (
-    <div className="h-screen bg-amazonclone-background">
-      <div className="min-w[1000px] max-w-[1500px] m-auto bg-white py-16">
+    <div className="bg-amazonclone-background">
+      <div className="min-w[1000px] max-w-[1500px]  bg-white py-16">
         <div className="grid grid-cols-11 gap-2 px-8">
-          <div className="col-span-1 rounded bg-white py-6">
-            <img src={`${product.image}`} alt="product-img" className="w-full h-full" />
+          <div className="col-span-1 rounded">
+            <div className="grid grid-rows-5 gap-3 pt-2 ml-16">
+              {product.image
+              && product.image.map((img, index) => (
+                <img
+                  src={img}
+                  key={index}
+                  alt={`Product${index + 1}`}
+                  onMouseEnter={() => handleImageClick(index)}
+                  className={`w-full  object-contain rounded-md cursor-pointer ${index === selectedImageIndex ? 'selected' : ''}`}
+                />
 
+              ))}
+            </div>
           </div>
           {/* left */}
-          <div className="col-span-4  rounded bg-white py-6">
-            <img src={`${product.image}`} alt="product-img" className="w-full h-full object-contain" />
+          <div className="col-span-4  rounded bg-white pt-2">
+            <img src={`${product.image[selectedImageIndex]}`} alt="product-img" className="w-full  object-contain" />
           </div>
           {/* center */}
-          <div className="col-span-4 p-4 rounded bg-white overflow-hiddden">
-            <ProductDetails product={product} />
+          <div className="col-span-4 px-4 rounded bg-white overflow-hiddden">
+            <ProductDetails product={product} titleFontSize="2xl" />
+            <ProductInfo product={product} />
           </div>
           {/* right */}
           <div className="col-span-2 bg-white flex-shrink-0 h-[80vh] border border-gray-200 rounded-md px-4 py-4">
@@ -92,7 +110,7 @@ const ProductPage = () => {
                 Add To Cart
               </button>
             </Link>
-            <Link to="/cart">
+            <Link to="/payment">
               <button
                 type="button"
                 className="bg-[#ffa41c] mt-3 hover:bg-orange-400 btn rounded-full"
@@ -127,7 +145,7 @@ const ProductPage = () => {
           </div>
         </div>
         <div className="px-8">
-          <div className="border-b mt-6 mb-4" />
+          <div className="border-b mt-6 mb-4 w-full h-full" />
 
           <h4 className="text-2xl font-bold mb-4 mt-4">From the brand</h4>
           <img src={`${product.brand_image}`} alt="product-img" className="w-full h-full" />
