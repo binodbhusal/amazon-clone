@@ -17,7 +17,11 @@ const CategoryProducts = () => {
   }, [categoryId]);
   useEffect(() => {
   }, [products]);
-
+  useEffect(() => {
+    window.scrollTo({
+      top: 0,
+    });
+  });
   const selectedCategoryProducts = categoryId
     ? Object.values(products).filter((product) => String(product.categoryId) === categoryId)
     : [];

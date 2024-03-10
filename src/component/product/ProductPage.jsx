@@ -36,8 +36,12 @@ const ProductPage = () => {
   };
   useEffect(() => {
     getProduct();
+  });
+  useEffect(() => {
+    window.scrollTo({
+      top: 0,
+    });
   }, []);
-
   return (product
     && (
     <div className="bg-amazonclone-background">
@@ -127,7 +131,7 @@ const ProductPage = () => {
               </div>
               <div className="table-row">
                 <div className="table-cell text-sm font-medium mr-4">Sold by</div>
-                <div className="table-cell text-sm text-cyan-600 font-medium">CLEVERFY</div>
+                <div className="table-cell text-sm text-cyan-600 font-medium">{product.brand}</div>
               </div>
               <div className="table-row">
                 <div className="table-cell text-sm font-medium mr-4">Returns</div>

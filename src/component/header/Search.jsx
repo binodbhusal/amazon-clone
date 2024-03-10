@@ -52,7 +52,7 @@ const Search = () => {
   const getWidth = () => {
     const selectOption = options[categoryOption];
     const selectedOptionLength = selectOption ? selectOption.length : 0;
-    return `${selectedOptionLength ? selectedOptionLength * 20 : 70}px`;
+    return `${selectedOptionLength ? selectedOptionLength * 22 : 70}px`;
   };
 
   return (
@@ -78,7 +78,7 @@ const Search = () => {
           }
         </select>
         <input
-          className="flex-grow h-full  text-black p-3 outline-0 border-0"
+          className="flex-grow h-full  text-black p-3 outline-0 border-0 focus:ring-0"
           type="text"
           placeholder="Search Amazon"
           value={search}
@@ -101,7 +101,7 @@ const Search = () => {
         {suggestion
           && Object.values(suggestion).filter((suggest) => {
             const currentSearch = search.toLowerCase();
-            const title = suggest.title.toLowerCase(); // Use slice to limit the length
+            const title = suggest.title.toLowerCase();
             return (
               currentSearch
               && title.startsWith(currentSearch)
@@ -112,7 +112,7 @@ const Search = () => {
             .map((suggest) => (
               // eslint-disable-next-line max-len
               // eslint-disable-next-line jsx-a11y/click-events-have-key-events, jsx-a11y/no-static-element-interactions
-              <div className="w-[790px] px-2" key={suggest.id} onClick={() => setSearch(suggest.title)}>
+              <div className="w-[870px] mt-1 rounded px-2" key={suggest.id} onClick={() => setSearch(suggest.title)}>
                 <p className="line-clamp-1">{suggest.title}</p>
               </div>
             ))}

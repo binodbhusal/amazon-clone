@@ -4,7 +4,7 @@ import PropTypes from 'prop-types';
 import { useNavigate } from 'react-router-dom';
 import ProductBadge from './ProductBadge';
 import ProductRating from './ProductRating';
-import { formatDeliveryDate } from '../utils/constant';
+import { formatDeliveryDate, EURO_FORMAT } from '../utils/constant';
 
 const ProductCard = ({
   product,
@@ -30,8 +30,7 @@ const ProductCard = ({
           />
           <ProductBadge badge={product.badge} />
           <p className="relative mt-3">
-            <small className="absolute top[-15px]">€</small>
-            <strong className="text-[25px] ml-3 mt-6 font-semibold">{product.price}</strong>
+            <strong className="text-[25px] ml-3 mt-6 font-semibold">{EURO_FORMAT.format(product.price)}</strong>
           </p>
         </div>
       </div>
