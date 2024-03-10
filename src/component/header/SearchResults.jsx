@@ -3,7 +3,6 @@ import { useEffect, useState } from 'react';
 import { Link, useSearchParams } from 'react-router-dom';
 import apiCall from '../utils/callApi';
 import ProductDetails from '../product/ProductDetails';
-import { EURO_FORMAT } from '../utils/constant';
 
 const SearchResults = () => {
   const [searchParams] = useSearchParams();
@@ -13,10 +12,15 @@ const SearchResults = () => {
     const getSearchResults = () => {
       const search = searchParams.get('search');
       const category = searchParams.get('categoryOption');
-      console.log('search params:', category, search);
-      apiCall('data/search.json')
+      apiCall('data/products.json')
         .then((searchResults) => {
-          const categoryResults = searchResults[category];
+          let categoryResults = [];
+          if (category === 'All') {
+            categoryResults = Object.values(searchResults).flat();
+          } else {
+            categoryResults = Object.values(searchResults)
+              .flat().filter((product) => product.categoryId === parseInt(category, 10));
+          }
           if (search) {
             const results = categoryResults.filter((product) => {
               // Check if product.title is a string before calling string methods
@@ -41,17 +45,16 @@ const SearchResults = () => {
           <Link key={key} to={`/product/${product.id}`}>
             <div className="h-[250px] grid grid-cols-12 gap-3 rounded mt-1 mb-1">
               <div className="col-span-2 bg-gray-200 p-4 w-full">
-                <img src={product.image_small} alt="p_image" />
+                <img src={product.image[0]} alt="p_image" />
               </div>
               <div className="col-span-10 bg-gray-50 border-gray-100 hover:bg-gray-100">
-                <ProductDetails product={product} />
-                <div className="text-xl xl:text-2xl pt-1">{EURO_FORMAT.format(product.price)}</div>
+                <ProductDetails product={product} titleFontSize="lg" />
               </div>
             </div>
           </Link>
         ))
       ) : (
-        <p>No search results found.</p>
+        <p>No products found.Please try to find other products</p>
       )}
     </div>
   );
