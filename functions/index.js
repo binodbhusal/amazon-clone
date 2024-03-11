@@ -12,13 +12,11 @@ app.get("/", (request, response) => response.status(200).send("Hello world"));
 app.post("/payments/create", async (request, response) => {
   const { total } = request.query;
 
-  // Corrected method name to stripe.paymentIntents.create
   const paymentIntent = await stripe.paymentIntents.create({
     amount: total,
     currency: "eur",
   });
 
-  // Corrected typo in response object
   response.status(201).send({
     clientSecret: paymentIntent.client_secret,
   });
