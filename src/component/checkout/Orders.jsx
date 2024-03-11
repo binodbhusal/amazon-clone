@@ -1,6 +1,8 @@
 import React, { useEffect, useState } from 'react';
 import { useSelector } from 'react-redux';
-import { collection, getDocs } from 'firebase/firestore';
+import {
+  collection, getDocs, query, orderBy,
+} from 'firebase/firestore';
 import { db } from '../../firebase';
 import OrderItem from './OrderItem'; // Assuming you have a component to display individual orders
 
@@ -15,8 +17,8 @@ const OrdersPage = () => {
     const fetchOrders = async () => {
       if (user?.uid) {
         const ordersCollection = collection(db, 'users', user.uid, 'orders');
-        const ordersSnapshot = await getDocs(ordersCollection);
-
+        const ordersQuery = query(ordersCollection, orderBy('created', 'desc'));
+        const ordersSnapshot = await getDocs(ordersQuery);
         const ordersData = ordersSnapshot.docs.map((doc) => ({ id: doc.id, ...doc.data() }));
 
         setOrders(ordersData);

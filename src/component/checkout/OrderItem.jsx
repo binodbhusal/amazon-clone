@@ -2,7 +2,7 @@
 
 import React from 'react';
 import PropTypes from 'prop-types';
-import moment from 'moment'; // Make sure to import the moment library
+import moment from 'moment';
 import './OrderItem.scss';
 import { EURO_FORMAT } from '../utils/constant';
 
@@ -39,7 +39,6 @@ OrderItem.propTypes = {
         price: PropTypes.number.isRequired,
         rating: PropTypes.number.isRequired,
         image: PropTypes.string.isRequired,
-        // Add more properties as needed
       }),
     ),
   }).isRequired,

@@ -48,8 +48,8 @@ The Amazon Clone is a comprehensive E-commerce web application inspired by the r
   </ul>
   <summary>Backend /Tools</summary>
   <ul>
-    <li><a href="https://react.dev/">Firebase</a></li>
-        <li><a href="https://react.dev/">STRIPE</a></li>
+    <li><a href="https://firebase.google.com/">Firebase</a></li>
+        <li><a href="https://stripe.com/">STRIPE</a></li>
     </ul>
 </details>
 
@@ -57,18 +57,18 @@ The Amazon Clone is a comprehensive E-commerce web application inspired by the r
 
 ### Key Features <a name="key-features"></a>
 
-1. <strong>User Authentication:</strong>Secure user registration and login functionalities.
+1. <strong>User Authentication:</strong> Secure user registration and login functionalities.
 2. <strong>Product Listings:</strong> Dynamic product catalog with detailed product information, images, and pricing.
 3. <strong>Shopping Cart Management:</strong> User-friendly shopping cart to add, remove, and manage selected items.
 4. <strong>Search and Navigation:</strong> Robust search functionality for users to find products efficiently.
 5. <strong>Product Details:</strong> Detailed product pages displaying key information.
 6. <strong>Checkout and Payment:</strong> Secure stripe payment gateway integration for safe and reliable transactions
 7. <strong>Order History:</strong> User-specific order history to track past purchases.
-8. <strong>Note:</strong>Presently, this design is tailored for large screens, and I am actively working on implementing responsive design elements to ensure optimal viewing across various devices.<p align="right">(<a href="#readme-top">back to top</a>)</p>
+8. <strong>Note:</strong> Presently, this design is tailored for large screens, and I am actively working on implementing responsive design elements to ensure optimal viewing across various devices.<p align="right">(<a href="#readme-top">back to top</a>)</p>
 
 ## 🚀 Live Demo <a name="live-demo"></a>
 
- Click on this [Amazon cloneLive Demo](#) to view the live-demo of project
+ Click on this [Amazon clone Live Demo](#) to view the live-demo of project
   ```json
 email: cc@gmail.com
 password: 12345678

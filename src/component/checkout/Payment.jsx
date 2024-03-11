@@ -79,7 +79,8 @@ const Payment = () => {
           throw Error('Client secret not present in the response');
         }
       } catch (error) {
-        throw Error('Error fetching client secret:', error);
+        // eslint-disable-next-line no-console
+        console.error('Error fetching client secret:', error);
       }
     };
 
