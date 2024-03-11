@@ -1,5 +1,23 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
 * {
   margin: 0;
+}
+
+.btn {
+  @apply py-2 text-sm px-6 text-amazonclone w-full  font-medium;
+}
+
+@font-face {
+  font-family: 'Amazon Ember';
+  src:
+    url('../public/fonts/AmazonEmber_Rg.ttf') format('woff2'),
+    url('../public/fonts/AmazonEmber_Bd.ttf') format('woff'),
+    url('../public/fonts/AmazonEmber_He.ttf') format('woff'),
+    url('../public/fonts/AmazonEmber_Lt.ttf') format('woff'),
+    url('../public/fonts/AmazonEmber_Th.ttf') format('woff');
 }
 
 body {
@@ -7,14 +25,9 @@ body {
   font-family:
     -apple-system,
     BlinkMacSystemFont,
-    'Segoe UI',
-    'Roboto',
-    'Oxygen',
-    'Ubuntu',
-    'Cantarell',
-    'Fira Sans',
-    'Droid Sans',
-    'Helvetica Neue',
+    'Amazon Ember Regular',
+    'Amazon Ember Bold',
+    'Amazon Ember Thin',
     sans-serif;
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;

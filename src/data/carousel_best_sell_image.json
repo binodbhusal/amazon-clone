@@ -1,0 +1,98 @@
+
+[
+    {
+      "id": 1,
+      "image": {
+        "url": "https://m.media-amazon.com/images/I/51L3RwkaTBL._AC_SY400_.jpg",
+        "alt": "bestsell_1"
+      }
+      
+    },
+    {
+        "id": 2,
+        "image": {
+            "url": "https://m.media-amazon.com/images/I/913C+MR3S5L._AC_SY400_.jpg",
+            "alt": "bestsell_12"
+          }
+      },
+      {
+        "id": 3,
+        "image": {
+          "url": "https://m.media-amazon.com/images/I/61yq-kuy6WL._AC_SY400_.jpg",
+          "alt": "bestsell_3"
+        }
+        
+      },
+      {
+        "id": 4,
+        "image": {
+          "url": "https://m.media-amazon.com/images/I/51T5RPDAS1L._AC_SY400_.jpg",
+          "alt": "bestsell_4"
+        }
+        
+      },
+      {
+        "id": 5,
+        "image": {
+          "url": "https://m.media-amazon.com/images/I/814WEkpf3-L._AC_SY400_.jpg",
+          "alt": "bestsell_5"
+        }
+        
+      },
+      {
+        "id": 6,
+        "image": {
+          "url": "https://m.media-amazon.com/images/I/81jEEaYxSOS._AC_UL640_FMwebp_QL65_.jpg",
+          "alt": "bestsell_6"
+        }
+        
+      },
+      {
+        "id": 7,
+        "image": {
+          "url": "https://m.media-amazon.com/images/I/81mpSoJzv4L._AC_SY400_.jpg",
+          "alt": "bestsell_7"
+        }
+        
+      },
+      {
+        "id": 8,
+        "image": {
+          "url": "https://m.media-amazon.com/images/I/51WO4E2bMKL._MCnd_AC_UL640_FMwebp_QL65_.jpg",
+          "alt": "bestsell_8"
+        }
+        
+      },
+      {
+        "id": 9,
+        "image": {
+          "url": "https://m.media-amazon.com/images/I/71geIOeuw-L._AC_UY436_FMwebp_QL65_.jpg",
+          "alt": "bestsell_9"
+        }
+        
+      },
+      {
+        "id": 10,
+        "image": {
+          "url": "https://m.media-amazon.com/images/I/61MEp5HIdBL._AC_UY436_FMwebp_QL65_.jpg",
+          "alt": "bestsell_10"
+        }
+        
+      },
+      {
+        "id": 11,
+        "image": {
+          "url": "https://m.media-amazon.com/images/I/71LA-cqXmlL._AC_UL640_FMwebp_QL65_.jpg",
+          "alt": "bestsell_11"
+        }
+        
+      },
+      {
+        "id": 12,
+        "image": {
+          "url": "https://m.media-amazon.com/images/I/71Gx-rOaEoL._AC_SY400_.jpg",
+          "alt": "bestsell_2"
+        }
+        
+      }
+    ]

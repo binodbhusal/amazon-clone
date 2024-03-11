@@ -1,27 +1,23 @@
 import React, { useEffect, useState } from 'react';
+import { useSelector } from 'react-redux';
 import { collection, getDocs } from 'firebase/firestore';
 import { db } from '../../firebase';
 import OrderItem from './OrderItem'; // Assuming you have a component to display individual orders
-import { useStateValue } from '../context';
+
 import './Orders.scss';
 
 const OrdersPage = () => {
-  const [{ user }] = useStateValue();
+  const { user } = useSelector((state) => state.cart);
 
   const [orders, setOrders] = useState([]);
 
   useEffect(() => {
     const fetchOrders = async () => {
-      console.log('Fetching orders for user:', user);
-
       if (user?.uid) {
         const ordersCollection = collection(db, 'users', user.uid, 'orders');
         const ordersSnapshot = await getDocs(ordersCollection);
 
-        console.log('ordersSnapshot:', ordersSnapshot);
-
         const ordersData = ordersSnapshot.docs.map((doc) => ({ id: doc.id, ...doc.data() }));
-        console.log('ordersData:', ordersData);
 
         setOrders(ordersData);
       } else {
@@ -31,8 +27,8 @@ const OrdersPage = () => {
     fetchOrders();
   }, [user]);
   return (
-    <div className="orders">
-      <h2>Your Orders</h2>
+    <div className="px-24 py-8">
+      <h2 className="font-bold text-xl">Your Orders</h2>
       {orders?.map((order) => (
         <OrderItem key={order.id} order={order} />
       ))}
