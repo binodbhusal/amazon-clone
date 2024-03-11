@@ -31,7 +31,8 @@
 # Amazon Clone <a name="about-project"></a>
 
 The Amazon Clone is a comprehensive E-commerce web application inspired by the renowned Amazon online marketplace. This project aims to replicate key features and functionalities of Amazon, providing users with a familiar and user-friendly shopping experience. This project encompasses a wide range of e-commerce elements, including product listings, user authentication, shopping cart management, and secure payment processing.It demonstrates best practices in web development, user experience design, and secure e-commerce functionality.
-![Amazon gif](./amazon.gif)
+
+![Amazon gif](./amazon_clone.gif)
 
 ## 🛠 Built With <a name="built-with"></a>
 
@@ -63,7 +64,7 @@ The Amazon Clone is a comprehensive E-commerce web application inspired by the r
 5. <strong>Product Details:</strong> Detailed product pages displaying key information.
 6. <strong>Checkout and Payment:</strong> Secure stripe payment gateway integration for safe and reliable transactions
 7. <strong>Order History:</strong> User-specific order history to track past purchases.
-<strong>Note:</strong>Presently, this design is tailored for large screens, and I am actively working on implementing responsive design elements to ensure optimal viewing across various devices.<p align="right">(<a href="#readme-top">back to top</a>)</p>
+8. <strong>Note:</strong>Presently, this design is tailored for large screens, and I am actively working on implementing responsive design elements to ensure optimal viewing across various devices.<p align="right">(<a href="#readme-top">back to top</a>)</p>
 
 ## 🚀 Live Demo <a name="live-demo"></a>
 
