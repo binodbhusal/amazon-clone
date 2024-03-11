@@ -1,70 +1,168 @@
-# Getting Started with Create React App
+<a name="readme-top"></a>
 
-This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
+<div align="center">
 
-## Available Scripts
+  <br/>
+  <h1>Amazon clone</h1>
 
-In the project directory, you can run:
+</div>
 
-### `npm start`
+## 📗 Table of Contents
 
-Runs the app in the development mode.\
-Open [http://localhost:3000](http://localhost:3000) to view it in your browser.
+- [📖 About the Project](#about-project)
+  - [🛠 Built With ](#-built-with-)
+  - [Tech Stack ](#tech-stack-)
+  - [Key Features ](#key-features-)
+  - [🚀 Live Demo](#live-demo)
+- [💻 Getting Started ](#-getting-started-)
+  - [Prerequisites](#prerequisites)
+  - [Setup](#setup)
+  - [Install](#install)
+  - [Run Tests](#run-tests)
+  - [👥 Authors ](#-authors-)
+- [🔭 Future Features:](#-future-features)
+  - [🤝 Contributing ](#-contributing-)
+  - [⭐️ Show your support ](#️-show-your-support-)
+  - [🙏 Acknowledgments ](#-acknowledgments-)
+  - [📝 License ](#-license-)
 
-The page will reload when you make changes.\
-You may also see any lint errors in the console.
+<!-- PROJECT DESCRIPTION -->
 
-### `npm test`
+# Amazon Clone <a name="about-project"></a>
 
-Launches the test runner in the interactive watch mode.\
-See the section about [running tests](https://facebook.github.io/create-react-app/docs/running-tests) for more information.
+The Amazon Clone is a comprehensive E-commerce web application inspired by the renowned Amazon online marketplace. This project aims to replicate key features and functionalities of Amazon, providing users with a familiar and user-friendly shopping experience. This project encompasses a wide range of e-commerce elements, including product listings, user authentication, shopping cart management, and secure payment processing.It demonstrates best practices in web development, user experience design, and secure e-commerce functionality.
+![Amazon gif](./amazon.gif)
 
-### `npm run build`
+## 🛠 Built With <a name="built-with"></a>
 
-Builds the app for production to the `build` folder.\
-It correctly bundles React in production mode and optimizes the build for the best performance.
+### Tech Stack <a name="tech-stack"></a>
 
-The build is minified and the filenames include the hashes.\
-Your app is ready to be deployed!
+<details>
+  <summary>Framework</summary>
+  <ul>
+    <li><a href="https://react.dev/">React</a></li>
+    <li><a href="https://redux.js.org/">Redux</a></li>
+    <li><a href="https://reactrouter.com/en/main">React Router</a></li>
+    <li><a href="#">SCSS/TailwindCSS</a></li>
+  </ul>
+  <summary>Backend /Tools</summary>
+  <ul>
+    <li><a href="https://react.dev/">Firebase</a></li>
+        <li><a href="https://react.dev/">STRIPE</a></li>
+    </ul>
+</details>
 
-See the section about [deployment](https://facebook.github.io/create-react-app/docs/deployment) for more information.
+<!-- Features -->
 
-### `npm run eject`
+### Key Features <a name="key-features"></a>
 
-**Note: this is a one-way operation. Once you `eject`, you can't go back!**
+1. <strong>User Authentication:</strong>Secure user registration and login functionalities.
+2. <strong>Product Listings:</strong> Dynamic product catalog with detailed product information, images, and pricing.
+3. <strong>Shopping Cart Management:</strong> User-friendly shopping cart to add, remove, and manage selected items.
+4. <strong>Search and Navigation:</strong> Robust search functionality for users to find products efficiently.
+5. <strong>Product Details:</strong> Detailed product pages displaying key information.
+6. <strong>Checkout and Payment:</strong> Secure stripe payment gateway integration for safe and reliable transactions
+7. <strong>Order History:</strong> User-specific order history to track past purchases.
+<strong>Note:</strong>Presently, this design is tailored for large screens, and I am actively working on implementing responsive design elements to ensure optimal viewing across various devices.<p align="right">(<a href="#readme-top">back to top</a>)</p>
 
-If you aren't satisfied with the build tool and configuration choices, you can `eject` at any time. This command will remove the single build dependency from your project.
+## 🚀 Live Demo <a name="live-demo"></a>
 
-Instead, it will copy all the configuration files and the transitive dependencies (webpack, Babel, ESLint, etc) right into your project so you have full control over them. All of the commands except `eject` will still work, but they will point to the copied scripts so you can tweak them. At this point you're on your own.
+ Click on this [Amazon cloneLive Demo](#) to view the live-demo of project
+  ```json
+email: cc@gmail.com
+password: 12345678
+```
+<p align="right">(<a href="#readme-top">back to top</a>)</p>
 
-You don't have to ever use `eject`. The curated feature set is suitable for small and middle deployments, and you shouldn't feel obligated to use this feature. However we understand that this tool wouldn't be useful if you couldn't customize it when you are ready for it.
+<p align="right">(<a href="#readme-top">back to top</a>)</p>
 
-## Learn More
+<!-- GETTING STARTED -->
 
-You can learn more in the [Create React App documentation](https://facebook.github.io/create-react-app/docs/getting-started).
+## 💻 Getting Started <a name="getting-started"></a>
 
-To learn React, check out the [React documentation](https://reactjs.org/).
+### Prerequisites
 
-### Code Splitting
+In order to run this project you need:
 
-This section has moved here: [https://facebook.github.io/create-react-app/docs/code-splitting](https://facebook.github.io/create-react-app/docs/code-splitting)
+- Installed Git.
+- Installed React
+- Installed Redux
+- Installed Firebase
+- Create a local directory that you want to clone the repository.
+- Open the command prompt in the created directory.
+- On the terminal run this command git clone https://github.com/binodbhusal/amazon-clone.git
 
-### Analyzing the Bundle Size
+### Setup
 
-This section has moved here: [https://facebook.github.io/create-react-app/docs/analyzing-the-bundle-size](https://facebook.github.io/create-react-app/docs/analyzing-the-bundle-size)
+Clone this repository to your desired folder:
 
-### Making a Progressive Web App
+```sh
+git clone https://github.com/binodbhusal/amazon-clone.git
+```
 
-This section has moved here: [https://facebook.github.io/create-react-app/docs/making-a-progressive-web-app](https://facebook.github.io/create-react-app/docs/making-a-progressive-web-app)
+```sh
+cd amazon-clone
+```
 
-### Advanced Configuration
+````
 
-This section has moved here: [https://facebook.github.io/create-react-app/docs/advanced-configuration](https://facebook.github.io/create-react-app/docs/advanced-configuration)
+```sh
+npm install
+````
 
-### Deployment
+```sh
+npm start
+```
 
-This section has moved here: [https://facebook.github.io/create-react-app/docs/deployment](https://facebook.github.io/create-react-app/docs/deployment)
+### Run Tests
 
-### `npm run build` fails to minify
+npm test
 
-This section has moved here: [https://facebook.github.io/create-react-app/docs/troubleshooting#npm-run-build-fails-to-minify](https://facebook.github.io/create-react-app/docs/troubleshooting#npm-run-build-fails-to-minify)
+<p align="right">(<a href="#readme-top">back to top</a>)</p>
+
+<!-- AUTHORS -->
+
+## 👥 Authors <a name="authors"></a>
+
+### 👤 **Binod Bhusal**
+
+- GitHub: [@binodbhusal](https://github.com/binodbhusal)
+- Twitter: [@twitter](https://twitter.com/Binod_ironLad)
+- LinkedIn: [@linkedin](https://www.linkedin.com/in/binodbhusal/)
+
+# 🔭 Future Features:
+
+- Future enhancements such as personalized recommendations and advanced search algorithms.
+- A responsive and mobile-friendly layout for a consistent experience across devices.
+
+## 🤝 Contributing <a name="contributing"></a>
+
+Contributions, issues, and feature requests are welcome!
+
+Feel free to check the [issues page](https://github.com/binodbhusal/amazon-clone/issues).
+
+<p align="right">(<a href="#readme-top">back to top</a>)</p>
+
+<!-- SUPPORT -->
+
+## ⭐️ Show your support <a name="support"></a>
+
+If you liked this project, give it a ⭐️ and kindly send to me an e-mail expressing it, it would make our day and fuel our motivation.
+
+<p align="right">(<a href="#readme-top">back to top</a>)</p>
+
+<!-- ACKNOWLEDGEMENTS -->
+
+## 🙏 Acknowledgments <a name="acknowledgements"></a>
+
+Original design - [Amazon]
+
+<p align="right">(<a href="#readme-top">back to top</a>)</p>
+
+<!-- LICENSE -->
+
+## 📝 License <a name="license"></a>
+
+This project is [MIT](./LICENSE) licensed.
+
+<p align="right">(<a href="#readme-top">back to top</a>)</p>

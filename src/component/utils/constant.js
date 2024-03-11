@@ -20,6 +20,8 @@ export const calculateSubtotal = (basket) => {
   if (!basket || !Array.isArray(basket)) {
     return 0;
   }
-
-  return basket.reduce((amount, item) => item.price + amount, 0);
+  return basket.reduce((amount, item) => {
+    const itemPrice = parseFloat(item.price) || 0;
+    return itemPrice * item.quantity + amount;
+  }, 0);
 };
