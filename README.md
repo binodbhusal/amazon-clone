@@ -37,7 +37,8 @@ The Amazon Clone is a comprehensive E-commerce web application inspired by the r
 ## 🛠 Built With <a name="built-with"></a>
 
 ### Tech Stack <a name="tech-stack"></a>
-
+- JavaScript
+- HTML/CSS
 <details>
   <summary>Framework</summary>
   <ul>
@@ -49,7 +50,7 @@ The Amazon Clone is a comprehensive E-commerce web application inspired by the r
   <summary>Backend /Tools</summary>
   <ul>
     <li><a href="https://firebase.google.com/">Firebase</a></li>
-        <li><a href="https://stripe.com/">STRIPE</a></li>
+    <li><a href="https://stripe.com/">STRIPE</a></li>
     </ul>
 </details>
 
